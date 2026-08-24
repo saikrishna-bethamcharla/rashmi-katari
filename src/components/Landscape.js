@@ -84,9 +84,11 @@ const Cloud = ({ top, width, dur, delay, opacity }) => (
 );
 
 const CLOUDS = [
-  { top: "8%", width: 320, dur: 160, delay: -60, opacity: 0.22 },
-  { top: "16%", width: 220, dur: 200, delay: -140, opacity: 0.16 },
-  { top: "5%", width: 180, dur: 185, delay: -20, opacity: 0.14 },
+  { top: "6%", width: 380, dur: 140, delay: -40, opacity: 0.38 },
+  { top: "12%", width: 280, dur: 175, delay: -90, opacity: 0.32 },
+  { top: "4%", width: 220, dur: 160, delay: -15, opacity: 0.28 },
+  { top: "18%", width: 300, dur: 195, delay: -110, opacity: 0.26 },
+  { top: "9%", width: 200, dur: 150, delay: -55, opacity: 0.3 },
 ];
 
 const STARS = Array.from({ length: 45 }, (_, i) => ({
@@ -117,34 +119,126 @@ const Stars = () => (
 );
 
 const NightScene = () => (
-  <div className="absolute bottom-0 inset-x-0" data-testid="night-scene" aria-hidden="true">
+  <div className="absolute inset-0" data-testid="night-scene" aria-hidden="true">
+    {/* Full scene: mountains, pond, sky, and yogi — not cropped to bottom strip */}
     <img
       src={`${process.env.PUBLIC_URL}/art/night-lake-yogi-right.png?v=4`}
       alt=""
-      className="w-full h-[52vh] object-cover object-bottom opacity-90"
+      className="absolute inset-0 w-full h-full object-cover opacity-95"
+      style={{ objectPosition: "center center" }}
     />
-    <div className="absolute inset-0 bg-gradient-to-b from-[#101110] via-transparent to-transparent" />
-    <div className="fire-glow" style={{ right: "26%", bottom: "8%", width: "190px", height: "190px" }} />
+    {/* Soft readability fades only — keep pond & peaks visible */}
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        background:
+          "linear-gradient(to bottom, rgba(16,17,16,0.55) 0%, rgba(16,17,16,0.15) 28%, transparent 45%, transparent 75%, rgba(16,17,16,0.25) 100%)",
+      }}
+    />
+    <div className="fire-glow" style={{ right: "20%", bottom: "16%", width: "160px", height: "160px" }} />
   </div>
 );
 
 const FireSmoke = () => (
   <div
     className="absolute pointer-events-none"
-    style={{ right: "25%", bottom: "17%", width: "80px", height: "220px" }}
+    style={{
+      /* Sit directly above the painted campfire (left of the yogi) */
+      right: "22%",
+      bottom: "20%",
+      width: "70px",
+      height: "260px",
+    }}
     data-testid="fire-smoke"
     aria-hidden="true"
   >
-    <div className="smoke-puff" style={{ left: "28%", bottom: "40%", animationDuration: "5.5s" }} />
-    <div className="smoke-puff" style={{ left: "42%", bottom: "46%", animationDuration: "7s", animationDelay: "-2.2s" }} />
-    <div className="smoke-puff" style={{ left: "34%", bottom: "43%", animationDuration: "8s", animationDelay: "-4.5s" }} />
-    <div className="smoke-puff" style={{ left: "38%", bottom: "44%", animationDuration: "6.2s", animationDelay: "-1.2s" }} />
+    <div className="smoke-puff" style={{ left: "18%", bottom: "8%", width: "36px", height: "28px", animationDuration: "5.2s" }} />
+    <div className="smoke-puff" style={{ left: "32%", bottom: "10%", width: "40px", height: "30px", animationDuration: "6.4s", animationDelay: "-1.4s" }} />
+    <div className="smoke-puff" style={{ left: "22%", bottom: "6%", width: "34px", height: "26px", animationDuration: "7.2s", animationDelay: "-2.8s" }} />
+    <div className="smoke-puff" style={{ left: "40%", bottom: "12%", width: "38px", height: "28px", animationDuration: "5.8s", animationDelay: "-0.6s" }} />
+    <div className="smoke-puff" style={{ left: "28%", bottom: "4%", width: "42px", height: "32px", animationDuration: "8s", animationDelay: "-4s" }} />
+  </div>
+);
+
+
+const WaterAtmosphere = () => (
+  <div className="absolute inset-0 pointer-events-none" data-testid="water-atmosphere" aria-hidden="true">
+    {/* Soft moving shine across the lake */}
+    <div
+      className="water-shine absolute"
+      style={{ left: "12%", top: "38%", width: "76%", height: "28%" }}
+    />
+    {/* Horizontal ripple lines */}
+    {[
+      { top: "46%", delay: "0s", dur: "7s", op: 0.55 },
+      { top: "50%", delay: "-2s", dur: "9s", op: 0.4 },
+      { top: "54%", delay: "-4s", dur: "8s", op: 0.35 },
+      { top: "58%", delay: "-1s", dur: "11s", op: 0.25 },
+    ].map((r, i) => (
+      <div
+        key={i}
+        className="ripple-line absolute left-[14%] w-[72%] h-px"
+        style={{
+          top: r.top,
+          opacity: r.op,
+          animationDuration: r.dur,
+          animationDelay: r.delay,
+          background: "linear-gradient(90deg, transparent, rgba(200,220,235,0.35), transparent)",
+        }}
+      />
+    ))}
+  </div>
+);
+
+const Fireflies = () => {
+  const bugs = Array.from({ length: 20 }, (_, i) => ({
+    left: 4 + ((i * 17) % 90),
+    bottom: 4 + ((i * 13) % 28),
+    dur: 4.5 + (i % 6),
+    delay: -(i * 0.65),
+  }));
+  return (
+    <div className="absolute inset-x-0 bottom-0 h-[40%]" aria-hidden="true">
+      {bugs.map((b, i) => (
+        <span
+          key={i}
+          className="firefly"
+          style={{
+            left: `${b.left}%`,
+            bottom: `${b.bottom}%`,
+            animationDuration: `${b.dur}s`,
+            animationDelay: `${b.delay}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+const Aurora = () => (
+  <div className="aurora" data-testid="aurora" aria-hidden="true" />
+);
+
+const FlameTips = () => (
+  <div
+    className="absolute pointer-events-none"
+    style={{ right: "23%", bottom: "19%", width: "48px", height: "56px" }}
+    data-testid="flame-tips"
+    aria-hidden="true"
+  >
+    <div className="flame-tip" style={{ left: "10px", width: "14px", height: "34px", background: "linear-gradient(to top, #c9714f, #ffb347, transparent)", animationDuration: "0.7s" }} />
+    <div className="flame-tip" style={{ left: "18px", width: "12px", height: "44px", background: "linear-gradient(to top, #ff6b2b, #ffe066, transparent)", animationDuration: "0.55s", animationDelay: "-0.2s" }} />
+    <div className="flame-tip" style={{ left: "24px", width: "10px", height: "30px", background: "linear-gradient(to top, #c9714f, #ffcc66, transparent)", animationDuration: "0.85s", animationDelay: "-0.35s" }} />
   </div>
 );
 
 export default function Landscape() {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none" data-testid="landscape-background" aria-hidden="true">
+      {/* Base full scene */}
+      <NightScene />
+      {/* Space / air */}
+      <Aurora />
       <Stars />
       {BIRDS.map((b, i) => (
         <Bird key={i} {...b} />
@@ -152,8 +246,13 @@ export default function Landscape() {
       {CLOUDS.map((c, i) => (
         <Cloud key={i} {...c} />
       ))}
-      <NightScene />
+      {/* Water */}
+      <WaterAtmosphere />
+      {/* Fire */}
+      <FlameTips />
       <FireSmoke />
+      {/* Earth */}
+      <Fireflies />
       <GrassLayer step={34} seed={7} baseH={100} varH={80} color="#4d5a46" width={3.5} opacity={0.4} blur />
       <GrassLayer step={24} seed={11} baseH={55} varH={85} color="#8CA183" width={2.2} opacity={0.55} flowers />
     </div>
