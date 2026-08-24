@@ -135,7 +135,7 @@ const NightScene = () => (
           "linear-gradient(to bottom, rgba(16,17,16,0.55) 0%, rgba(16,17,16,0.15) 28%, transparent 45%, transparent 75%, rgba(16,17,16,0.25) 100%)",
       }}
     />
-    <div className="fire-glow" style={{ right: "20%", bottom: "16%", width: "160px", height: "160px" }} />
+    <div className="fire-glow" style={{ right: "24%", bottom: "16%", width: "160px", height: "160px" }} />
   </div>
 );
 
@@ -144,7 +144,7 @@ const FireSmoke = () => (
     className="absolute pointer-events-none"
     style={{
       /* Sit directly above the painted campfire (left of the yogi) */
-      right: "22%",
+      right: "26%",
       bottom: "20%",
       width: "70px",
       height: "260px",
@@ -163,30 +163,11 @@ const FireSmoke = () => (
 
 const WaterAtmosphere = () => (
   <div className="absolute inset-0 pointer-events-none" data-testid="water-atmosphere" aria-hidden="true">
-    {/* Soft moving shine across the lake */}
+    {/* Soft moving shine across the lake only — no hard horizontal lines */}
     <div
       className="water-shine absolute"
       style={{ left: "12%", top: "38%", width: "76%", height: "28%" }}
     />
-    {/* Horizontal ripple lines */}
-    {[
-      { top: "46%", delay: "0s", dur: "7s", op: 0.55 },
-      { top: "50%", delay: "-2s", dur: "9s", op: 0.4 },
-      { top: "54%", delay: "-4s", dur: "8s", op: 0.35 },
-      { top: "58%", delay: "-1s", dur: "11s", op: 0.25 },
-    ].map((r, i) => (
-      <div
-        key={i}
-        className="ripple-line absolute left-[14%] w-[72%] h-px"
-        style={{
-          top: r.top,
-          opacity: r.op,
-          animationDuration: r.dur,
-          animationDelay: r.delay,
-          background: "linear-gradient(90deg, transparent, rgba(200,220,235,0.35), transparent)",
-        }}
-      />
-    ))}
   </div>
 );
 
@@ -222,7 +203,7 @@ const Aurora = () => (
 const FlameTips = () => (
   <div
     className="absolute pointer-events-none"
-    style={{ right: "23%", bottom: "19%", width: "48px", height: "56px" }}
+    style={{ right: "27%", bottom: "19%", width: "48px", height: "56px" }}
     data-testid="flame-tips"
     aria-hidden="true"
   >
