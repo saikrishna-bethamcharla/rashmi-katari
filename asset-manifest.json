@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rashmi-katari/static/css/main.9a3e4de4.css",
+    "main.js": "/rashmi-katari/static/js/main.14132aea.js",
+    "index.html": "/rashmi-katari/index.html",
+    "main.9a3e4de4.css.map": "/rashmi-katari/static/css/main.9a3e4de4.css.map",
+    "main.14132aea.js.map": "/rashmi-katari/static/js/main.14132aea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a3e4de4.css",
+    "static/js/main.14132aea.js"
+  ]
+}
