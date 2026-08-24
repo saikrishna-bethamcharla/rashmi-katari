@@ -119,7 +119,7 @@ const Stars = () => (
 const NightScene = () => (
   <div className="absolute bottom-0 inset-x-0" data-testid="night-scene" aria-hidden="true">
     <img
-      src="/art/night-lake-yogi-right.png?v=4"
+      src={`${process.env.PUBLIC_URL}/art/night-lake-yogi-right.png?v=4`}
       alt=""
       className="w-full h-[52vh] object-cover object-bottom opacity-90"
     />

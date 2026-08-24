@@ -82,7 +82,7 @@ export default function Hero() {
           >
             <motion.div style={{ y: imgY }} className="relative w-full h-[60vh] md:h-[75vh] scale-110">
               <img
-                src="/art/mountains-hero-day.png?v=3"
+                src={`${process.env.PUBLIC_URL}/art/mountains-hero-day.png?v=3`}
                 alt="Color-sketch of bright mountain peaks with a meditating figure"
                 className="w-full h-full object-cover"
                 data-testid="hero-image"
