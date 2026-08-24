@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 100 4% 6%;
+        --foreground: 42 24% 88%;
+        --card: 100 4% 8%;
+        --card-foreground: 42 24% 88%;
+        --popover: 100 4% 8%;
+        --popover-foreground: 42 24% 88%;
+        --primary: 16 50% 55%;
+        --primary-foreground: 42 24% 92%;
+        --secondary: 96 18% 62%;
+        --secondary-foreground: 100 4% 8%;
+        --muted: 80 6% 14%;
+        --muted-foreground: 60 8% 60%;
+        --accent: 80 6% 14%;
+        --accent-foreground: 42 24% 88%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 70 9% 14%;
+        --input: 70 9% 14%;
+        --ring: 16 50% 55%;
+        --radius: 0.125rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html.lenis, html.lenis body {
+        height: auto;
+    }
+    .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+    }
+    body {
+        @apply bg-sand text-ink font-sans antialiased;
+        text-shadow: 0 1px 6px rgba(16, 17, 16, 0.9), 0 2px 22px rgba(16, 17, 16, 0.7);
+    }
+    ::selection {
+        background: #C9714F;
+        color: #101110;
+    }
+}
+
+.grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+@keyframes marquee-drift {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes sway {
+    from { transform: rotate(-3deg); }
+    to { transform: rotate(3.5deg); }
+}
+
+.sway {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: sway 5s ease-in-out infinite alternate;
+}
+
+@keyframes fly-across {
+    from { transform: translateX(-8vw); }
+    to { transform: translateX(112vw); }
+}
+
+.fly {
+    animation: fly-across 60s linear infinite;
+    will-change: transform;
+}
+
+@keyframes bird-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.bird-bob {
+    animation: bird-bob 2.6s ease-in-out infinite;
+}
+
+@keyframes flap-left {
+    from { transform: rotate(20deg); }
+    to { transform: rotate(-24deg); }
+}
+
+@keyframes flap-right {
+    from { transform: rotate(-20deg); }
+    to { transform: rotate(24deg); }
+}
+
+.wing {
+    transform-box: fill-box;
+}
+
+.wing-left {
+    transform-origin: 100% 100%;
+    animation: flap-left 0.55s ease-in-out infinite alternate;
+}
+
+.wing-right {
+    transform-origin: 0% 100%;
+    animation: flap-right 0.55s ease-in-out infinite alternate;
+}
+
+@keyframes cloud-drift {
+    from { transform: translateX(-25vw); }
+    to { transform: translateX(115vw); }
+}
+
+.cloud {
+    animation: cloud-drift 180s linear infinite;
+    filter: blur(10px);
+    will-change: transform;
+}
+
+@keyframes water-ripple {
+    from { transform: translateX(-26px); }
+    to { transform: translateX(26px); }
+}
+
+.ripple-line {
+    animation: water-ripple 6s ease-in-out infinite alternate;
+}
+
+@keyframes water-shine {
+    from { transform: translateX(-16%); opacity: 0.05; }
+    50% { opacity: 0.22; }
+    to { transform: translateX(16%); opacity: 0.05; }
+}
+
+.water-shine {
+    background: radial-gradient(ellipse at center, rgba(234, 228, 216, 0.6), rgba(234, 228, 216, 0) 70%);
+    filter: blur(10px);
+    mix-blend-mode: screen;
+    animation: water-shine 26s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.15; transform: scale(0.7); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.star {
+    position: absolute;
+    border-radius: 9999px;
+    background: #E8C46B;
+    box-shadow: 0 0 6px rgba(232, 196, 107, 0.8);
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes flame-flicker {
+    0%, 100% { transform: scaleY(1) scaleX(1); }
+    30% { transform: scaleY(1.14) scaleX(0.93); }
+    60% { transform: scaleY(0.9) scaleX(1.06); }
+}
+
+.flame {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: flame-flicker 0.9s ease-in-out infinite;
+}
+
+@keyframes fire-glow-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.35; }
+    50% { transform: scale(1.25); opacity: 0.6; }
+}
+
+.fire-glow {
+    position: absolute;
+    right: 18px;
+    bottom: -10px;
+    width: 130px;
+    height: 130px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(201, 113, 79, 0.55), rgba(201, 113, 79, 0) 70%);
+    filter: blur(8px);
+    mix-blend-mode: screen;
+    animation: fire-glow-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes smoke-rise {
+    0% { transform: translateY(0) translateX(0) scale(0.5); opacity: 0; }
+    15% { opacity: 0.4; }
+    100% { transform: translateY(-150px) translateX(24px) scale(1.8); opacity: 0; }
+}
+
+.smoke-puff {
+    position: absolute;
+    width: 46px;
+    height: 34px;
+    border-radius: 9999px;
+    background: rgba(208, 208, 200, 0.6);
+    filter: blur(10px);
+    animation: smoke-rise 6s linear infinite;
+}
+
+@keyframes flame-slow {
+    0%, 100% { transform: scaleY(1) scaleX(1); }
+    50% { transform: scaleY(1.08) scaleX(0.95); }
+}
+
+.flame-slow {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: flame-slow 3s ease-in-out infinite;
+}
+
+@keyframes sun-pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.55; }
+    50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.95; }
+}
+
+.sun-glow {
+    position: absolute;
+    top: 20%;
+    left: 61%;
+    width: 8.5rem;
+    height: 8.5rem;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(224, 122, 80, 0.9), rgba(224, 122, 80, 0) 70%);
+    filter: blur(6px);
+    mix-blend-mode: screen;
+    animation: sun-pulse 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.animate-marquee {
+    animation: marquee-drift 70s linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+        animation: none;
+    }
+    .sway, .sun-glow, .fly, .bird-bob, .wing, .cloud, .ripple-line, .water-shine, .star, .flame, .flame-slow, .fire-glow, .smoke-puff {
+        animation: none;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}
