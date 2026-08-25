@@ -22,47 +22,52 @@ const PILLARS = [
 
 export default function Foundation() {
   return (
-    <section id="foundation" className="py-24 md:py-32 bg-ink text-sand" data-testid="foundation-section">
+    <section
+      id="foundation"
+      className="relative z-10 py-24 md:py-32"
+      data-testid="foundation-section"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Reveal className="text-xs uppercase tracking-[0.3em] text-sand/50 mb-6">
+        <Reveal className="text-xs uppercase tracking-[0.3em] text-[#EAE4D8]/70 mb-6">
           The Foundation
         </Reveal>
         <Reveal
           delay={0.1}
-          className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl max-w-3xl leading-[1.05] mb-6"
+          className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl max-w-3xl leading-[1.05] mb-6 text-[#EAE4D8]"
           data-testid="foundation-heading"
         >
           A vision of <span className="italic text-terra">devotion</span>
         </Reveal>
-        <Reveal delay={0.2} className="text-sand/60 font-light max-w-xl mb-20">
+        <Reveal delay={0.2} className="text-[#EAE4D8]/75 font-light max-w-xl mb-20">
           Buying land and creating the space — brick by brick, prayer by prayer.
         </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-px bg-sand/10 border border-sand/10">
+                <div className="grid md:grid-cols-3 gap-px bg-[#101110]/10 border border-[#101110]/10">
           {PILLARS.map((p, i) => (
             <Reveal
               key={p.title}
               delay={i * 0.1}
-              className="bg-ink p-10 md:p-12 group"
+              className="p-10 md:p-12 group"
+              style={{ backgroundColor: "#EAE4D8" }}
               data-testid={`foundation-${p.title.toLowerCase().replace(/\s/g, "-")}`}
             >
               <p.icon size={26} strokeWidth={1.25} className="text-terra mb-8 group-hover:-translate-y-1 transition-transform duration-500" />
-              <h3 className="font-serif text-2xl md:text-3xl font-light mb-4">{p.title}</h3>
-              <p className="text-sm leading-relaxed text-sand/60 font-light">{p.text}</p>
+              <h3 className="font-serif text-2xl md:text-3xl font-light mb-4 text-[#101110]">{p.title}</h3>
+              <p className="text-sm leading-relaxed text-[#101110]/60 font-light">{p.text}</p>
             </Reveal>
           ))}
         </div>
 
-        <Reveal className="mt-20 flex flex-col md:flex-row md:items-center md:justify-between gap-8 border-t border-sand/10 pt-12">
-          <p className="font-serif italic text-2xl md:text-3xl font-light text-sand/80 max-w-xl">
+        <Reveal className="mt-20 flex flex-col md:flex-row md:items-center md:justify-between gap-8 border-t border-[#EAE4D8]/25 pt-12">
+          <p className="font-serif italic text-2xl md:text-3xl font-light text-[#EAE4D8]/90 max-w-xl">
             “You are welcome to support this dream from your heart and become part of something sacred.”
           </p>
           <button
             onClick={() => scrollToSection("#contact")}
             data-testid="foundation-support-button"
-            className="shrink-0 bg-terra text-sand px-8 py-4 text-xs uppercase tracking-widest hover:bg-sand hover:text-ink transition-colors duration-300"
+            className="shrink-0 bg-terra text-[#101110] px-8 py-4 text-xs uppercase tracking-widest hover:bg-[#EAE4D8] hover:text-[#101110] transition-colors duration-300"
           >
-            Support this Dream
+                        Donation
           </button>
         </Reveal>
       </div>
