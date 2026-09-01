@@ -23,7 +23,7 @@ export default function Manifesto() {
     <section id="about" className="py-24 md:py-32" data-testid="about-section">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Reveal className="text-xs uppercase tracking-[0.3em] text-moss mb-6">
-          About — The Intention
+          The Intention
         </Reveal>
         <Reveal
           delay={0.1}

@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const LINKS = [
-  { label: "About", href: "#about", id: "nav-link-about" },
+  { label: "About", to: "/about", id: "nav-link-about" },
   { label: "Program", href: "#program", id: "nav-link-program" },
   { label: "Five Elements", href: "#elements", id: "nav-link-elements" },
-  { label: "Foundation", href: "#foundation", id: "nav-link-foundation" },
+  { label: "Foundation", href: "https://www.virupakshaniramayata.org/", id: "nav-link-foundation", external: true },
 ];
 
 export const scrollToSection = (href) => {
@@ -19,32 +20,66 @@ export const scrollToSection = (href) => {
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const go = (e, href) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const goSection = (e, href) => {
     e.preventDefault();
     setOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => scrollToSection(href), 80);
+      return;
+    }
     scrollToSection(href);
+  };
+
+  const go = (e, link) => {
+    if (link.external) {
+      setOpen(false);
+      return;
+    }
+    if (link.to) {
+      setOpen(false);
+      return;
+    }
+    goSection(e, link.href);
   };
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-sand/80 backdrop-blur-md border-b border-line" data-testid="site-nav">
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-[72px] flex items-center justify-between">
-        <a href="#top" onClick={(e) => go(e, "#top")} className="font-serif text-xl md:text-2xl tracking-tight" data-testid="nav-brand">
+        <Link to="/" onClick={() => setOpen(false)} className="font-serif text-xl md:text-2xl tracking-tight" data-testid="nav-brand">
           Rashmi <span className="italic text-terra">Katari</span>
-        </a>
+        </Link>
         <nav className="hidden md:flex items-center gap-8">
-          {LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={(e) => go(e, l.href)}
-              data-testid={l.id}
-              className="text-xs uppercase tracking-widest text-ink/70 hover:text-terra transition-colors duration-300"
-            >
-              {l.label}
-            </a>
-          ))}
+          {LINKS.map((l) =>
+            l.to ? (
+              <Link
+                key={l.id}
+                to={l.to}
+                onClick={() => setOpen(false)}
+                data-testid={l.id}
+                className="text-xs uppercase tracking-widest text-ink/70 hover:text-terra transition-colors duration-300"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.id}
+                href={l.href}
+                onClick={(e) => go(e, l)}
+                target={l.external ? "_blank" : undefined}
+                rel={l.external ? "noopener noreferrer" : undefined}
+                data-testid={l.id}
+                className="text-xs uppercase tracking-widest text-ink/70 hover:text-terra transition-colors duration-300"
+              >
+                {l.label}
+              </a>
+            )
+          )}
           <button
-            onClick={(e) => go(e, "#contact")}
+            onClick={(e) => goSection(e, "#contact")}
             data-testid="nav-contact-button"
             className="text-xs uppercase tracking-widest border border-ink px-5 py-2.5 hover:bg-ink hover:text-sand transition-colors duration-300"
           >
@@ -66,14 +101,34 @@ export default function Nav() {
             data-testid="mobile-menu"
           >
             <div className="px-6 py-6 flex flex-col gap-5">
-              {LINKS.map((l) => (
-                <a key={l.href} href={l.href} onClick={(e) => go(e, l.href)} data-testid={`mobile-${l.id}`} className="font-serif text-2xl">
-                  {l.label}
-                </a>
-              ))}
-              <a href="#contact" onClick={(e) => go(e, "#contact")} data-testid="mobile-nav-contact" className="font-serif text-2xl italic text-terra">
+              {LINKS.map((l) =>
+                l.to ? (
+                  <Link
+                    key={l.id}
+                    to={l.to}
+                    onClick={() => setOpen(false)}
+                    data-testid={`mobile-${l.id}`}
+                    className="font-serif text-2xl"
+                  >
+                    {l.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={l.id}
+                    href={l.href}
+                    onClick={(e) => go(e, l)}
+                    target={l.external ? "_blank" : undefined}
+                    rel={l.external ? "noopener noreferrer" : undefined}
+                    data-testid={`mobile-${l.id}`}
+                    className="font-serif text-2xl"
+                  >
+                    {l.label}
+                  </a>
+                )
+              )}
+              <button onClick={(e) => goSection(e, "#contact")} data-testid="mobile-nav-contact" className="font-serif text-2xl italic text-terra text-left">
                 Begin a Conversation
-              </a>
+              </button>
             </div>
           </motion.nav>
         )}

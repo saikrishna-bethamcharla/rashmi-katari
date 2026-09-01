@@ -70,9 +70,9 @@ export default function Program() {
             <div className="md:sticky md:top-28">
               <div className="overflow-hidden border border-line max-h-[60vh] md:max-h-none">
                 <motion.img
-                  src={`${process.env.PUBLIC_URL}/art/mountains-pond-day.png?v=3`}
-                  alt="Color-sketch of a still mountain pond in daylight"
-                  style={{ y: y1 }}
+                  src={`${process.env.PUBLIC_URL}/art/program-portrait.png`}
+                  alt="Family portrait in celebration"
+                  style={{ y: y1, objectPosition: "center 30%" }}
                   className="w-full h-[50vh] md:h-[65vh] object-cover scale-110"
                   data-testid="program-image"
                 />
