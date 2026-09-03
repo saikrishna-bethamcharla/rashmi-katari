@@ -26,18 +26,30 @@ export default function Contact() {
           name: form.name,
           email: form.email,
           message: form.message,
+          _replyto: form.email,
           _subject: `Rashmi Katari site — message from ${form.name}`,
           _template: "table",
+          _captcha: "false",
         }),
       });
-      const data = await res.json();
-      if (!res.ok || data.success === "false") {
-        throw new Error(data.message || "Send failed");
+      const data = await res.json().catch(() => ({}));
+      const ok = res.ok && data.success !== false && data.success !== "false";
+      const msg = (data.message || "").toString();
+
+      if (ok) {
+        toast.success("Thank you — your message has been received with love.");
+        setForm({ name: "", email: "", message: "" });
+        return;
       }
-      toast.success("Thank you — your message has been received with love.");
-      setForm({ name: "", email: "", message: "" });
-    } catch {
-      toast.error("Something went wrong. Please try again, or email us directly.");
+
+      if (/confirm|activat|inbox|verify/i.test(msg)) {
+        toast.success("Check virupakshaniramayata@gmail.com and confirm FormSubmit. Then try once more.");
+        return;
+      }
+
+      throw new Error(msg || `Send failed (${res.status})`);
+    } catch (err) {
+      toast.error(err.message || "Something went wrong. Please email us directly.");
     } finally {
       setSending(false);
     }
