@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import { Toaster } from "sonner";
 import HomePage from "./components/HomePage";
@@ -8,6 +8,8 @@ import VisionPage from "./components/VisionPage";
 import ScrollTop from "./components/ScrollTop";
 
 export default function App() {
+  const location = useLocation();
+
   useEffect(() => {
     const lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
     window.__lenis = lenis;
@@ -22,6 +24,14 @@ export default function App() {
       lenis.destroy();
     };
   }, []);
+
+  useEffect(() => {
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
 
   return (
     <div data-testid="app-root">

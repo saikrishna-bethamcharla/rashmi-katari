@@ -61,7 +61,9 @@ export default function Nav() {
                 to={l.to}
                 onClick={() => setOpen(false)}
                 data-testid={l.id}
-                className="text-xs uppercase tracking-widest text-ink/70 hover:text-terra transition-colors duration-300"
+                className={`text-xs uppercase tracking-widest transition-colors duration-300 hover:text-terra ${
+                  location.pathname === l.to ? "text-terra" : "text-ink/70"
+                }`}
               >
                 {l.label}
               </Link>
@@ -109,7 +111,7 @@ export default function Nav() {
                     to={l.to}
                     onClick={() => setOpen(false)}
                     data-testid={`mobile-${l.id}`}
-                    className="font-serif text-2xl"
+                    className={`font-serif text-2xl ${location.pathname === l.to ? "text-terra" : ""}`}
                   >
                     {l.label}
                   </Link>
