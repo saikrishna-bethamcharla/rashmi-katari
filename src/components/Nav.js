@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 
 const LINKS = [
   { label: "About", to: "/about", id: "nav-link-about" },
+  { label: "Our Vision", to: "/vision", id: "nav-link-vision" },
   { label: "Program", href: "#program", id: "nav-link-program" },
   { label: "Five Elements", href: "#elements", id: "nav-link-elements" },
   { label: "Foundation", href: "https://www.virupakshaniramayata.org/", id: "nav-link-foundation", external: true },

@@ -1,10 +1,9 @@
 import { useState } from "react";
-import axios from "axios";
 import Reveal from "./Reveal";
 import { toast } from "sonner";
 import { ArrowRight, Loader2 } from "lucide-react";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const MAIL = "virupakshaniramayata@gmail.com";
 
 const inputCls =
   "w-full bg-transparent border-0 border-b border-ink/25 focus:border-terra focus:ring-0 outline-none py-4 text-base font-light placeholder:text-ink/35 transition-colors duration-300";
@@ -17,11 +16,28 @@ export default function Contact() {
     e.preventDefault();
     setSending(true);
     try {
-      await axios.post(`${API}/enquiries`, form);
+      const res = await fetch(`https://formsubmit.co/ajax/${MAIL}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `Rashmi Katari site — message from ${form.name}`,
+          _template: "table",
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || data.success === "false") {
+        throw new Error(data.message || "Send failed");
+      }
       toast.success("Thank you — your message has been received with love.");
       setForm({ name: "", email: "", message: "" });
     } catch {
-      toast.error("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again, or email us directly.");
     } finally {
       setSending(false);
     }
@@ -39,6 +55,13 @@ export default function Contact() {
             Whether you feel called to visit, contribute, or simply sit in stillness
             with us — write to us. Every message is read with presence.
           </p>
+          <a
+            href={`mailto:${MAIL}`}
+            className="mt-8 inline-block text-sm tracking-wide text-terra hover:underline"
+            data-testid="contact-email-link"
+          >
+            {MAIL}
+          </a>
         </Reveal>
 
         <Reveal
