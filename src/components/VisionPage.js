@@ -24,7 +24,7 @@ export default function VisionPage() {
               ← Back to home
             </Link>
 
-            <div className="space-y-7 text-ink/80 font-light leading-relaxed text-base md:text-lg">
+            <div className="space-y-7 text-ink font-light leading-relaxed text-base md:text-lg">
               <p>
                 We believe that true wellbeing begins when we stop looking at the body, food and emotions as separate things.
               </p>
@@ -49,7 +49,7 @@ export default function VisionPage() {
               What if we understood ourselves before trying to change ourselves?
             </p>
 
-            <div className="space-y-7 text-ink/80 font-light leading-relaxed text-base md:text-lg">
+            <div className="space-y-7 text-ink font-light leading-relaxed text-base md:text-lg">
               <p>We want to help people become more curious about their own bodies, emotions and choices.</p>
               <p>Instead of simply asking:</p>
               <p className="font-serif italic text-xl text-ink">“What should I eat?”</p>
@@ -69,7 +69,7 @@ export default function VisionPage() {
               <p>We are here to create a space for exploration.</p>
             </div>
 
-            <ul className="mt-10 mb-12 space-y-3 text-ink/80 font-light text-base md:text-lg">
+            <ul className="mt-10 mb-12 space-y-3 text-ink font-light text-base md:text-lg">
               {[
                 "A space to slow down.",
                 "To listen to the body.",

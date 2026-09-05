@@ -41,7 +41,7 @@ export default function Manifesto() {
               data-testid={`manifesto-chapter-${c.n}`}
             >
               <div className="md:col-span-3">
-                <span className="font-serif text-7xl md:text-8xl font-light text-terra/30 group-hover:text-terra transition-colors duration-500">
+                <span className="font-serif text-7xl md:text-8xl font-light text-terra">
                   {c.n}
                 </span>
               </div>
@@ -49,7 +49,7 @@ export default function Manifesto() {
                 <h3 className="font-serif text-2xl md:text-3xl font-light">{c.title}</h3>
               </div>
               <div className="md:col-span-5">
-                <p className="text-base leading-relaxed text-ink/70 font-light">{c.text}</p>
+                <p className="text-base leading-relaxed text-ink font-light">{c.text}</p>
               </div>
             </Reveal>
           ))}

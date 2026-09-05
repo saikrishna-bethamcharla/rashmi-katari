@@ -72,8 +72,8 @@ export default function Program() {
                 <motion.img
                   src={`${process.env.PUBLIC_URL}/art/program-portrait.png`}
                   alt="Family portrait in celebration"
-                  style={{ y: y1, objectPosition: "center 30%" }}
-                  className="w-full h-[50vh] md:h-[65vh] object-cover scale-110"
+                  style={{ y: y1 }}
+                  className="w-full h-[50vh] md:h-[65vh] object-cover scale-110" style={{ objectPosition: "center 30%" }}
                   data-testid="program-image"
                 />
               </div>
@@ -99,7 +99,7 @@ export default function Program() {
                   </h3>
                   <p className="text-xs uppercase tracking-widest text-moss mt-2">{p.sub}</p>
                 </div>
-                <ul className="col-span-12 md:col-span-7 space-y-2 text-sm leading-relaxed text-ink/70 font-light md:pt-1">
+                <ul className="col-span-12 md:col-span-7 space-y-2 text-sm leading-relaxed text-ink font-light md:pt-1">
                   {p.points.map((pt, j) => (
                     <li key={j} className="flex gap-3">
                       <span className="text-terra mt-1">·</span>

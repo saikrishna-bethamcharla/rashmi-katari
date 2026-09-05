@@ -21,7 +21,7 @@ export default function Footer() {
         <p className="font-serif text-xl">
           Rashmi <span className="italic text-terra">Katari</span>
         </p>
-        <nav className="flex flex-wrap gap-6 text-xs uppercase tracking-widest text-ink/60">
+        <nav className="flex flex-wrap gap-6 text-xs uppercase tracking-widest text-ink">
           <Link to="/about" data-testid="footer-link-about" className="hover:text-terra transition-colors duration-300">
             about
           </Link>
@@ -48,7 +48,23 @@ export default function Footer() {
             foundation
           </a>
         </nav>
-        <p className="text-xs text-ink/40">© Rashmi Katari</p>
+        <div className="text-xs text-ink space-y-2">
+          <p>© Rashmi Katari</p>
+          <p>
+            <a href="mailto:mail4drrashmi@gmail.com" className="hover:text-terra">mail4drrashmi@gmail.com</a>
+            <span className="mx-2">·</span>
+            <a href="tel:+919704795319" className="hover:text-terra">+91 97047 95319</a>
+          </p>
+          <p className="flex items-center gap-1.5 text-ink/80">
+            <span>Powered by</span>
+            <img
+              src={`${process.env.PUBLIC_URL}/art/zailabs-logo.png`}
+              alt=""
+              className="h-[1em] w-auto object-contain"
+            />
+            <span>Zailabs</span>
+          </p>
+        </div>
       </div>
     </footer>
   );

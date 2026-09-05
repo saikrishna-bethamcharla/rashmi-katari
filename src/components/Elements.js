@@ -63,7 +63,7 @@ export default function Elements() {
               data-testid={`element-${el.title.toLowerCase()}`}
             >
               <div className="md:col-span-2 flex items-center gap-4">
-                <span className="font-serif text-4xl font-light text-terra/40 group-hover:text-terra transition-colors duration-500">{el.n}</span>
+                <span className="font-serif text-4xl font-light text-terra">{el.n}</span>
                 <el.icon size={20} strokeWidth={1.5} className="text-moss" />
               </div>
               <div className="md:col-span-4">
@@ -72,7 +72,7 @@ export default function Elements() {
                 </h3>
                 <p className="text-xs uppercase tracking-widest text-moss mt-2">{el.sub}</p>
               </div>
-              <p className="md:col-span-6 text-base leading-relaxed text-ink/70 font-light">{el.text}</p>
+              <p className="md:col-span-6 text-base leading-relaxed text-ink font-light">{el.text}</p>
             </Reveal>
           ))}
         </div>

@@ -13,7 +13,7 @@ module.exports = {
       },
       colors: {
         sand: '#101110',
-        ink: '#EAE4D8',
+        ink: '#F3EEE3',
         terra: '#C9714F',
         moss: '#9CAF8D',
         line: '#27281F',

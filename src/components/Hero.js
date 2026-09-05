@@ -44,7 +44,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1 }}
-            className="mt-10 max-w-md text-base md:text-lg leading-relaxed text-ink/70 font-light"
+            className="mt-10 max-w-md text-base md:text-lg leading-relaxed text-ink font-light"
             data-testid="hero-subtitle"
           >
             For healing, grounding, and conscious living — where nature, ritual,

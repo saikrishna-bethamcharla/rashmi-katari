@@ -196,7 +196,7 @@ function PersonCard({ person }) {
           <p className="text-sm tracking-wide text-terra mb-8">{person.note}</p>
         )}
         {person.intro?.map((p, i) => (
-          <p key={i} className="text-ink/80 font-light leading-relaxed mb-6">
+          <p key={i} className="text-ink font-light leading-relaxed mb-6">
             {p}
           </p>
         ))}
@@ -206,12 +206,12 @@ function PersonCard({ person }) {
               {section.title}
             </h3>
             {section.paragraphs?.map((p, i) => (
-              <p key={i} className="text-ink/80 font-light leading-relaxed mb-6">
+              <p key={i} className="text-ink font-light leading-relaxed mb-6">
                 {p}
               </p>
             ))}
             {section.list?.length > 0 && (
-              <ul className="mb-8 space-y-2 text-ink/80 font-light">
+              <ul className="mb-8 space-y-2 text-ink font-light">
                 {section.list.map((item) => (
                   <li key={item} className="flex gap-3">
                     <span className="text-terra mt-1">·</span>
@@ -221,7 +221,7 @@ function PersonCard({ person }) {
               </ul>
             )}
             {section.after?.map((p, i) => (
-              <p key={i} className="text-ink/80 font-light leading-relaxed mb-6">
+              <p key={i} className="text-ink font-light leading-relaxed mb-6">
                 {p}
               </p>
             ))}
@@ -245,7 +245,7 @@ export default function AboutPage() {
             <h1 className="font-serif font-light text-5xl md:text-6xl max-w-2xl leading-[1.05] mb-6">
               The people behind this <span className="italic text-terra">work</span>
             </h1>
-            <p className="text-ink/70 font-light max-w-xl mb-4">
+            <p className="text-ink/90 font-light max-w-xl mb-4">
               Stories of practice, healing, and the search for what is true.
             </p>
             <Link

@@ -3,10 +3,12 @@ import Reveal from "./Reveal";
 import { toast } from "sonner";
 import { ArrowRight, Loader2 } from "lucide-react";
 
-const MAIL = "virupakshaniramayata@gmail.com";
+const MAIL = "mail4drrashmi@gmail.com";
+const PHONE = "+91 97047 95319";
+const PHONE_TEL = "+919704795319";
 
 const inputCls =
-  "w-full bg-transparent border-0 border-b border-ink/25 focus:border-terra focus:ring-0 outline-none py-4 text-base font-light placeholder:text-ink/35 transition-colors duration-300";
+  "w-full bg-transparent border-0 border-b border-ink/25 focus:border-terra focus:ring-0 outline-none py-4 text-base font-light placeholder:text-ink/65 transition-colors duration-300";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -43,7 +45,7 @@ export default function Contact() {
       }
 
       if (/confirm|activat|inbox|verify/i.test(msg)) {
-        toast.success("Check virupakshaniramayata@gmail.com and confirm FormSubmit. Then try once more.");
+        toast.success("Check mail4drrashmi@gmail.com and confirm FormSubmit. Then try once more.");
         return;
       }
 
@@ -59,21 +61,30 @@ export default function Contact() {
     <section id="contact" className="py-24 md:py-32" data-testid="contact-section">
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-16 md:gap-24">
         <Reveal>
-          <p className="text-xs uppercase tracking-[0.3em] text-moss mb-6">Contact</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-ink mb-6">Contact</p>
           <h2 className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl leading-[1.05]" data-testid="contact-heading">
             Begin a <span className="italic text-terra">conversation</span>
           </h2>
-          <p className="mt-8 text-base leading-relaxed text-ink/70 font-light max-w-md">
+          <p className="mt-8 text-base leading-relaxed text-ink font-normal max-w-md">
             Whether you feel called to visit, contribute, or simply sit in stillness
             with us — write to us. Every message is read with presence.
           </p>
-          <a
-            href={`mailto:${MAIL}`}
-            className="mt-8 inline-block text-sm tracking-wide text-terra hover:underline"
-            data-testid="contact-email-link"
-          >
-            {MAIL}
-          </a>
+          <div className="mt-8 flex flex-col gap-2">
+            <a
+              href={`mailto:${MAIL}`}
+              className="text-sm tracking-wide text-terra hover:underline"
+              data-testid="contact-email-link"
+            >
+              {MAIL}
+            </a>
+            <a
+              href={`tel:${PHONE_TEL}`}
+              className="text-sm tracking-wide text-terra hover:underline"
+              data-testid="contact-phone-link"
+            >
+              {PHONE}
+            </a>
+          </div>
         </Reveal>
 
         <Reveal
@@ -84,7 +95,7 @@ export default function Contact() {
           data-testid="contact-form"
         >
           <div>
-            <label htmlFor="contact-name" className="text-xs uppercase tracking-widest text-moss">Your Name</label>
+            <label htmlFor="contact-name" className="text-xs uppercase tracking-widest text-ink">Your Name</label>
             <input
               id="contact-name"
               data-testid="contact-name-input"
@@ -96,7 +107,7 @@ export default function Contact() {
             />
           </div>
           <div>
-            <label htmlFor="contact-email" className="text-xs uppercase tracking-widest text-moss">Email</label>
+            <label htmlFor="contact-email" className="text-xs uppercase tracking-widest text-ink">Email</label>
             <input
               id="contact-email"
               type="email"
@@ -109,7 +120,7 @@ export default function Contact() {
             />
           </div>
           <div>
-            <label htmlFor="contact-message" className="text-xs uppercase tracking-widest text-moss">Message</label>
+            <label htmlFor="contact-message" className="text-xs uppercase tracking-widest text-ink">Message</label>
             <textarea
               id="contact-message"
               rows={4}
