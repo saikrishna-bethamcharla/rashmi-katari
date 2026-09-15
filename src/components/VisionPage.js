@@ -12,7 +12,7 @@ export default function VisionPage() {
       <main className="relative z-10 pt-[72px]">
         <section className="py-20 md:py-28">
           <div className="max-w-3xl mx-auto px-6 md:px-12">
-            <p className="text-xs uppercase tracking-[0.3em] text-moss mb-6">Our Vision</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-moss mb-6 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]">Our Vision</p>
             <h1 className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl leading-[1.08] mb-8 text-white">
               Nourishing the Body. <span className="text-white">Understanding the Emotions.</span>{" "}
               <span className="italic text-terra">Connecting with Nature.</span>

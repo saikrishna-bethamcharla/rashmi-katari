@@ -28,7 +28,7 @@ export default function Foundation() {
       data-testid="foundation-section"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Reveal className="text-xs uppercase tracking-[0.3em] text-[#EAE4D8]/70 mb-6">
+        <Reveal className="text-sm font-semibold uppercase tracking-[0.25em] text-moss mb-6 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]">
           The Foundation
         </Reveal>
         <Reveal
@@ -38,7 +38,7 @@ export default function Foundation() {
         >
           A vision of <span className="italic text-terra">sacred devotion</span>
         </Reveal>
-        <Reveal delay={0.2} className="text-[#EAE4D8]/75 font-light max-w-xl mb-20">
+        <Reveal delay={0.2} className="text-ink/90 font-light text-base md:text-lg max-w-xl mb-16 leading-relaxed">
           Buying land and creating the space — brick by brick, prayer by prayer.
         </Reveal>
 

@@ -29,7 +29,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xs uppercase tracking-[0.3em] text-moss mb-8"
+            className="text-sm font-semibold uppercase tracking-[0.25em] text-moss mb-8 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]"
             data-testid="hero-eyebrow"
           >
             A sacred space · Guided by the five elements
