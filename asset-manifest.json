@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/rashmi-katari/static/css/main.1c7881c1.css",
-    "main.js": "/rashmi-katari/static/js/main.2624c6cb.js",
+    "main.css": "/rashmi-katari/static/css/main.5be481a3.css",
+    "main.js": "/rashmi-katari/static/js/main.31da6183.js",
     "index.html": "/rashmi-katari/index.html",
-    "main.1c7881c1.css.map": "/rashmi-katari/static/css/main.1c7881c1.css.map",
-    "main.2624c6cb.js.map": "/rashmi-katari/static/js/main.2624c6cb.js.map"
+    "main.5be481a3.css.map": "/rashmi-katari/static/css/main.5be481a3.css.map",
+    "main.31da6183.js.map": "/rashmi-katari/static/js/main.31da6183.js.map"
   },
   "entrypoints": [
-    "static/css/main.1c7881c1.css",
-    "static/js/main.2624c6cb.js"
+    "static/css/main.5be481a3.css",
+    "static/js/main.31da6183.js"
   ]
 }
