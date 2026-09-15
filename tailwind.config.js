@@ -15,7 +15,7 @@ module.exports = {
         sand: '#101110',
         ink: '#F3EEE3',
         terra: '#E07A4F',
-        moss: '#86EFAC',
+        moss: '#9CAF8D',
         line: '#27281F',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
