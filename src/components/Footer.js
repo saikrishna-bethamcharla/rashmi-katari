@@ -31,14 +31,14 @@ export default function Footer() {
           <Link to="/vision" data-testid="footer-link-vision" className="hover:text-terra transition-colors duration-300">
             our vision
           </Link>
-          {["program", "elements", "contact"].map((id) => (
+          {["stories", "program", "elements", "contact"].map((id) => (
             <button
               key={id}
               onClick={() => goSection(id)}
               data-testid={`footer-link-${id}`}
               className="hover:text-terra transition-colors duration-300 capitalize"
             >
-              {id}
+              {id === "stories" ? "journey" : id}
             </button>
           ))}
           <a

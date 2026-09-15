@@ -1,6 +1,7 @@
 import Hero from "./Hero";
 import Marquee from "./Marquee";
 import Manifesto from "./Manifesto";
+import Stories from "./Stories";
 import Program from "./Program";
 import Elements from "./Elements";
 import Foundation from "./Foundation";
@@ -19,6 +20,7 @@ export default function HomePage() {
         <Hero />
         <Marquee />
         <Manifesto />
+        <Stories />
         <Program />
         <Elements />
         <Foundation />

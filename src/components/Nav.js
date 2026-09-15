@@ -7,6 +7,7 @@ const LINKS = [
   { label: "About", to: "/about", id: "nav-link-about" },
   { label: "Our Team", to: "/team", id: "nav-link-team" },
   { label: "Our Vision", to: "/vision", id: "nav-link-vision" },
+  { label: "Journey", href: "#stories", id: "nav-link-stories" },
   { label: "Program", href: "#program", id: "nav-link-program" },
   { label: "Five Elements", href: "#elements", id: "nav-link-elements" },
   { label: "Foundation", href: "https://www.virupakshaniramayata.org/", id: "nav-link-foundation", external: true },
