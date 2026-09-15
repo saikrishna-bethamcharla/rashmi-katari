@@ -48,7 +48,7 @@ export default function Elements() {
         </Reveal>
         <Reveal
           delay={0.1}
-          className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-20"
+          className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl leading-[1.08] mb-20 text-white"
           data-testid="elements-heading"
         >
           Earth · Water · Fire · <span className="italic text-terra">Air · Space</span>
@@ -67,12 +67,12 @@ export default function Elements() {
                 <el.icon size={20} strokeWidth={1.5} className="text-moss" />
               </div>
               <div className="md:col-span-4">
-                <h3 className="font-serif text-3xl md:text-4xl font-light group-hover:translate-x-2 transition-transform duration-500">
+                <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light group-hover:translate-x-2 transition-transform duration-500">
                   {el.title}
                 </h3>
-                <p className="text-xs uppercase tracking-widest text-moss mt-2">{el.sub}</p>
+                <p className="text-sm uppercase tracking-widest text-moss mt-2">{el.sub}</p>
               </div>
-              <p className="md:col-span-6 text-base leading-relaxed text-ink font-light">{el.text}</p>
+              <p className="md:col-span-6 text-lg md:text-xl leading-relaxed text-ink/90 font-light">{el.text}</p>
             </Reveal>
           ))}
         </div>

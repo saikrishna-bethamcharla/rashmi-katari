@@ -59,10 +59,10 @@ export default function Program() {
         </Reveal>
         <Reveal
           delay={0.1}
-          className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl max-w-3xl leading-[1.05] mb-20"
+          className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl max-w-3xl leading-[1.08] mb-20 text-white"
           data-testid="program-heading"
         >
-          Four paths into <span className="italic text-terra">presence</span>
+          Four paths into <span className="italic text-terra">sacred presence</span>
         </Reveal>
 
         <div className="grid md:grid-cols-12 gap-8 md:gap-12">
@@ -99,11 +99,11 @@ export default function Program() {
                   </h3>
                   <p className="text-xs uppercase tracking-widest text-moss mt-2">{p.sub}</p>
                 </div>
-                <ul className="col-span-12 md:col-span-7 space-y-2 text-sm leading-relaxed text-ink font-light md:pt-1">
+                <ul className="col-span-12 md:col-span-7 space-y-3 text-base md:text-lg leading-relaxed text-ink/90 font-light md:pt-1">
                   {p.points.map((pt, j) => (
-                    <li key={j} className="flex gap-3">
-                      <span className="text-terra mt-1">·</span>
-                      {pt}
+                    <li key={j} className="flex items-start gap-3.5">
+                      <span className="inline-block w-2.5 h-2.5 rounded-full bg-terra shrink-0 mt-2" aria-hidden="true" />
+                      <span>{pt}</span>
                     </li>
                   ))}
                 </ul>

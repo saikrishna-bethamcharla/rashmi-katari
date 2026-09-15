@@ -25,6 +25,9 @@ export default function Footer() {
           <Link to="/about" data-testid="footer-link-about" className="hover:text-terra transition-colors duration-300">
             about
           </Link>
+          <Link to="/team" data-testid="footer-link-team" className="hover:text-terra transition-colors duration-300">
+            our team
+          </Link>
           <Link to="/vision" data-testid="footer-link-vision" className="hover:text-terra transition-colors duration-300">
             our vision
           </Link>

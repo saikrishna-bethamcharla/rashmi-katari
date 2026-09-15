@@ -14,7 +14,7 @@ module.exports = {
       colors: {
         sand: '#101110',
         ink: '#F3EEE3',
-        terra: '#C9714F',
+        terra: '#E07A4F',
         moss: '#9CAF8D',
         line: '#27281F',
         background: 'hsl(var(--background))',

@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import HomePage from "./components/HomePage";
 import AboutPage from "./components/AboutPage";
 import VisionPage from "./components/VisionPage";
+import TeamPage from "./components/TeamPage";
 import ScrollTop from "./components/ScrollTop";
 
 export default function App() {
@@ -38,6 +39,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/team" element={<TeamPage />} />
         <Route path="/vision" element={<VisionPage />} />
       </Routes>
       <ScrollTop />

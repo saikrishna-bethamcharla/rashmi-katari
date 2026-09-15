@@ -27,7 +27,7 @@ export default function Manifesto() {
         </Reveal>
         <Reveal
           delay={0.1}
-          className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl max-w-2xl leading-[1.05] mb-20"
+          className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl max-w-2xl leading-[1.08] mb-20 text-white"
           data-testid="about-heading"
         >
           A return to the <span className="italic text-terra">quiet truth</span> within
@@ -46,10 +46,10 @@ export default function Manifesto() {
                 </span>
               </div>
               <div className="md:col-span-4">
-                <h3 className="font-serif text-2xl md:text-3xl font-light">{c.title}</h3>
+                <h3 className="font-serif text-2xl md:text-3xl lg:text-4xl font-light">{c.title}</h3>
               </div>
               <div className="md:col-span-5">
-                <p className="text-base leading-relaxed text-ink font-light">{c.text}</p>
+                <p className="text-lg md:text-xl leading-relaxed text-ink/90 font-light">{c.text}</p>
               </div>
             </Reveal>
           ))}

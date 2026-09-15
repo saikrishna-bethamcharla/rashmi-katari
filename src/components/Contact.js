@@ -62,8 +62,8 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-16 md:gap-24">
         <Reveal>
           <p className="text-xs uppercase tracking-[0.3em] text-ink mb-6">Contact</p>
-          <h2 className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl leading-[1.05]" data-testid="contact-heading">
-            Begin a <span className="italic text-terra">conversation</span>
+          <h2 className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl leading-[1.08] text-white" data-testid="contact-heading">
+            Begin a <span className="italic text-terra">sacred conversation</span>
           </h2>
           <p className="mt-8 text-base leading-relaxed text-ink font-normal max-w-md">
             Whether you feel called to visit, contribute, or simply sit in stillness

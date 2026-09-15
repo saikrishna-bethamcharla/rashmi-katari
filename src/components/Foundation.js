@@ -33,10 +33,10 @@ export default function Foundation() {
         </Reveal>
         <Reveal
           delay={0.1}
-          className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl max-w-3xl leading-[1.05] mb-6 text-[#EAE4D8]"
+          className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl max-w-3xl leading-[1.08] mb-6 text-white"
           data-testid="foundation-heading"
         >
-          A vision of <span className="italic text-terra">devotion</span>
+          A vision of <span className="italic text-terra">sacred devotion</span>
         </Reveal>
         <Reveal delay={0.2} className="text-[#EAE4D8]/75 font-light max-w-xl mb-20">
           Buying land and creating the space — brick by brick, prayer by prayer.
@@ -51,9 +51,9 @@ export default function Foundation() {
               style={{ backgroundColor: "#EAE4D8", textShadow: "none" }}
               data-testid={`foundation-${p.title.toLowerCase().replace(/\s/g, "-")}`}
             >
-              <p.icon size={26} strokeWidth={1.25} className="text-terra mb-8 group-hover:-translate-y-1 transition-transform duration-500" />
-              <h3 className="font-serif text-2xl md:text-3xl font-light mb-4 text-[#101110]" style={{ textShadow: "none" }}>{p.title}</h3>
-              <p className="text-sm leading-relaxed text-[#101110]/80 font-normal">{p.text}</p>
+              <p.icon size={28} strokeWidth={1.25} className="text-terra mb-8 group-hover:-translate-y-1 transition-transform duration-500" />
+              <h3 className="font-serif text-3xl md:text-4xl font-light mb-4 text-[#101110]" style={{ textShadow: "none" }}>{p.title}</h3>
+              <p className="text-base md:text-lg leading-relaxed text-[#101110]/85 font-normal">{p.text}</p>
             </Reveal>
           ))}
         </div>
@@ -62,13 +62,15 @@ export default function Foundation() {
           <p className="font-serif italic text-2xl md:text-3xl font-light text-[#EAE4D8]/90 max-w-xl">
             “You are welcome to support this dream from your heart and become part of something sacred.”
           </p>
-          <button
-            onClick={() => scrollToSection("#contact")}
+          <a
+            href="https://www.virupakshaniramayata.org/about-4-1"
+            target="_blank"
+            rel="noopener noreferrer"
             data-testid="foundation-support-button"
-            className="shrink-0 bg-terra text-[#101110] px-8 py-4 text-xs uppercase tracking-widest hover:bg-[#EAE4D8] hover:text-[#101110] transition-colors duration-300"
+            className="shrink-0 bg-terra text-[#101110] px-8 py-4 text-xs uppercase tracking-widest hover:bg-[#EAE4D8] hover:text-[#101110] transition-colors duration-300 inline-block text-center font-medium"
           >
             Donation
-          </button>
+          </a>
         </Reveal>
       </div>
     </section>
