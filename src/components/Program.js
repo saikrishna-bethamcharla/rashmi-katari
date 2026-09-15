@@ -54,7 +54,7 @@ export default function Program() {
   return (
     <section id="program" ref={ref} className="py-24 md:py-32 bg-white/[0.03] border-y border-line" data-testid="program-section">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Reveal className="text-sm font-semibold uppercase tracking-[0.25em] text-moss mb-6 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]">
+        <Reveal className="text-base md:text-lg font-bold uppercase tracking-[0.25em] text-moss mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
           The Program
         </Reveal>
         <Reveal
@@ -77,7 +77,7 @@ export default function Program() {
                   data-testid="program-image"
                 />
               </div>
-              <p className="font-serif italic text-lg text-moss mt-4 -ml-1 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">
+              <p className="font-serif italic text-xl md:text-2xl text-moss font-medium mt-6 -ml-1 leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">
                 “No rush, no noise — just the opportunity to meet yourself fully.”
               </p>
             </div>
@@ -97,7 +97,7 @@ export default function Program() {
                   <h3 className="font-serif text-2xl md:text-3xl font-light group-hover:translate-x-1 group-hover:text-terra transition-all duration-500">
                     {p.title}
                   </h3>
-                  <p className="text-sm font-semibold uppercase tracking-wider text-moss mt-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">{p.sub}</p>
+                  <p className="text-base font-bold uppercase tracking-wider text-moss mt-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">{p.sub}</p>
                 </div>
                 <ul className="col-span-12 md:col-span-7 space-y-3 text-base md:text-lg leading-relaxed text-ink/90 font-light md:pt-1">
                   {p.points.map((pt, j) => (

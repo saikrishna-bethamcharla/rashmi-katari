@@ -29,7 +29,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-sm font-semibold uppercase tracking-[0.25em] text-moss mb-8 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]"
+            className="text-base md:text-lg font-bold uppercase tracking-[0.25em] text-moss mb-8 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"
             data-testid="hero-eyebrow"
           >
             A sacred space · Guided by the five elements
@@ -94,7 +94,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4, duration: 1 }}
-            className="absolute -bottom-6 -right-6 md:-right-12 font-serif italic text-lg text-moss bg-sand px-4 py-2 border border-line"
+            className="absolute -bottom-6 -right-6 md:-right-12 font-serif italic text-xl text-moss font-medium bg-sand px-5 py-2.5 border border-line drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]"
           >
             est. in devotion
           </motion.p>

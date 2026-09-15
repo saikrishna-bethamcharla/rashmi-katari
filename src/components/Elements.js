@@ -43,7 +43,7 @@ export default function Elements() {
   return (
     <section id="elements" className="py-24 md:py-32" data-testid="elements-section">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Reveal className="text-sm font-semibold uppercase tracking-[0.25em] text-moss mb-6 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]">
+        <Reveal className="text-base md:text-lg font-bold uppercase tracking-[0.25em] text-moss mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
           The Five Elements
         </Reveal>
         <Reveal
@@ -70,7 +70,7 @@ export default function Elements() {
                 <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light group-hover:translate-x-2 transition-transform duration-500">
                   {el.title}
                 </h3>
-                <p className="text-sm font-semibold uppercase tracking-wider text-moss mt-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">{el.sub}</p>
+                <p className="text-base font-bold uppercase tracking-wider text-moss mt-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">{el.sub}</p>
               </div>
               <p className="md:col-span-6 text-lg md:text-xl leading-relaxed text-ink/90 font-light">{el.text}</p>
             </Reveal>

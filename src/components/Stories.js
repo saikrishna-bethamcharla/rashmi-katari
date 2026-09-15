@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Reveal from "./Reveal";
 import { Eye, Heart, ArrowUpRight, X, Calendar, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -47,10 +47,22 @@ const STORIES = [
 export default function Stories() {
   const [activeStory, setActiveStory] = useState(null);
 
+  useEffect(() => {
+    if (activeStory) {
+      window.__lenis?.stop();
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        window.__lenis?.start();
+        document.body.style.overflow = originalOverflow || "";
+      };
+    }
+  }, [activeStory]);
+
   return (
     <section id="stories" className="py-24 md:py-32 border-t border-line relative" data-testid="stories-section">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Reveal className="text-sm font-semibold uppercase tracking-[0.25em] text-moss mb-6 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]">
+        <Reveal className="text-base md:text-lg font-bold uppercase tracking-[0.25em] text-moss mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
           The Journey
         </Reveal>
         
@@ -102,7 +114,7 @@ export default function Stories() {
                   {s.snippet}
                 </p>
 
-                <p className="font-serif italic text-lg text-moss pt-4 border-t border-line/60 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">
+                <p className="font-serif italic text-xl md:text-2xl text-moss font-medium pt-5 border-t border-line/60 leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">
                   {s.quote}
                 </p>
               </div>
@@ -127,60 +139,74 @@ export default function Stories() {
         </div>
       </div>
 
-      {/* Modal for Reading Full Story */}
+      {/* Modal for Reading Full Story with isolated scrolling and Lenis prevention */}
       {activeStory && (
         <div
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 md:p-12 overflow-y-auto"
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 md:p-10"
           onClick={() => setActiveStory(null)}
           role="dialog"
           aria-modal="true"
+          data-lenis-prevent
         >
           <div
-            className="bg-sand border border-line max-w-2xl w-full p-8 md:p-12 relative my-auto shadow-2xl"
+            className="bg-[#141514] border border-line max-w-2xl w-full max-h-[88vh] flex flex-col relative shadow-2xl rounded-sm overflow-hidden"
             onClick={(e) => e.stopPropagation()}
+            data-lenis-prevent
           >
-            <button
-              type="button"
-              onClick={() => setActiveStory(null)}
-              className="absolute top-6 right-6 text-ink/60 hover:text-terra transition-colors"
-              aria-label="Close modal"
-            >
-              <X size={24} />
-            </button>
-
-            <div className="flex items-center gap-3 mb-4">
-              <span className="inline-block w-2.5 h-2.5 rounded-full bg-terra shrink-0" aria-hidden="true" />
-              <span className="text-xs uppercase tracking-widest text-terra font-medium">{activeStory.category} · {activeStory.year}</span>
-            </div>
-
-            <h3 className="font-serif text-3xl sm:text-4xl font-light text-white mb-6 leading-tight">
-              {activeStory.title}
-            </h3>
-
-            <div className="flex items-center gap-4 text-xs text-ink/60 uppercase tracking-wider mb-8 pb-6 border-b border-line">
-              <span>{activeStory.date}</span>
-              <span>•</span>
-              <span>{activeStory.readTime}</span>
-              <span>•</span>
-              <span>By Rashmi Katari, N.D.</span>
-            </div>
-
-            <div className="space-y-5 text-ink/90 font-light text-base sm:text-lg leading-[1.9]">
-              {activeStory.fullStory.map((paragraph, idx) => (
-                <p key={idx}>{paragraph}</p>
-              ))}
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-line flex items-center justify-between">
-              <p className="font-serif italic text-base sm:text-lg text-moss">
-                {activeStory.quote}
-              </p>
+            {/* Header */}
+            <div className="p-6 md:p-8 pb-4 border-b border-line flex items-start justify-between gap-4 shrink-0 bg-[#141514]">
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-terra shrink-0" aria-hidden="true" />
+                  <span className="text-xs uppercase tracking-widest text-terra font-medium">{activeStory.category} · {activeStory.year}</span>
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-light text-white leading-tight">
+                  {activeStory.title}
+                </h3>
+              </div>
               <button
                 type="button"
                 onClick={() => setActiveStory(null)}
-                className="shrink-0 ml-4 px-5 py-2.5 bg-terra text-sand text-xs uppercase tracking-widest font-medium hover:bg-ink transition-colors"
+                className="text-ink/60 hover:text-terra transition-colors p-1"
+                aria-label="Close modal"
               >
-                Close
+                <X size={26} />
+              </button>
+            </div>
+
+            {/* Scrollable Content Body */}
+            <div
+              className="p-6 md:p-8 overflow-y-auto overscroll-contain flex-1 space-y-5 text-ink/90 font-light text-base sm:text-lg leading-[2.0]"
+              data-lenis-prevent
+              tabIndex={0}
+            >
+              <div className="flex items-center gap-4 text-xs text-ink/60 uppercase tracking-wider pb-4 border-b border-line/60">
+                <span>{activeStory.date}</span>
+                <span>•</span>
+                <span>{activeStory.readTime}</span>
+                <span>•</span>
+                <span>By Dr. Rashmi Katari, N.D.</span>
+              </div>
+
+              {activeStory.fullStory.map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))}
+
+              <div className="pt-6 mt-6 border-t border-line/60">
+                <p className="font-serif italic text-xl sm:text-2xl text-moss font-medium leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">
+                  {activeStory.quote}
+                </p>
+              </div>
+            </div>
+
+            {/* Sticky Footer */}
+            <div className="p-4 sm:p-6 border-t border-line bg-[#141514] flex items-center justify-end shrink-0">
+              <button
+                type="button"
+                onClick={() => setActiveStory(null)}
+                className="px-6 py-2.5 bg-terra text-sand text-xs uppercase tracking-widest font-semibold hover:bg-ink transition-colors"
+              >
+                Close Story
               </button>
             </div>
           </div>

@@ -28,7 +28,7 @@ export default function Foundation() {
       data-testid="foundation-section"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Reveal className="text-sm font-semibold uppercase tracking-[0.25em] text-moss mb-6 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]">
+        <Reveal className="text-base md:text-lg font-bold uppercase tracking-[0.25em] text-moss mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
           The Foundation
         </Reveal>
         <Reveal

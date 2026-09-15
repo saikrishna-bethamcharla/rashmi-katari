@@ -136,7 +136,7 @@ function PersonCard({ person }) {
         </div>
       </div>
       <div className="md:col-span-7">
-        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-moss mb-4 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">{person.role}</p>
+        <p className="text-base md:text-lg font-bold uppercase tracking-[0.22em] text-moss mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">{person.role}</p>
         <h2 className="font-serif font-light text-4xl md:text-5xl lg:text-6xl mb-4">{person.name}</h2>
         {person.note && (
           <p className="text-base tracking-wide text-terra font-medium mb-8">{person.note}</p>
@@ -187,7 +187,7 @@ export default function TeamPage() {
       <main className="relative z-10 pt-[72px]">
         <section className="py-20 md:py-28">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-moss mb-6 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]">Our Team</p>
+            <p className="text-base md:text-lg font-bold uppercase tracking-[0.25em] text-moss mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">Our Team</p>
             <h1 className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl max-w-2xl leading-[1.08] mb-6 text-white">
               Guiding minds and <span className="italic text-terra">guardians</span> of the land
             </h1>
