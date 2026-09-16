@@ -54,7 +54,7 @@ export default function Footer() {
         <div className="text-xs text-ink space-y-2">
           <p>© Rashmi Katari</p>
           <p>
-            <a href="mailto:mail4drrashmi@gmail.com" className="hover:text-terra">mail4drrashmi@gmail.com</a>
+            <a href="mailto:virupakshawellness@gmail.com" className="hover:text-terra">virupakshawellness@gmail.com</a>
             <span className="mx-2">·</span>
             <a href="tel:+919704795319" className="hover:text-terra">+91 97047 95319</a>
           </p>

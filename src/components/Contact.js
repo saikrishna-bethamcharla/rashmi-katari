@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 import { toast } from "sonner";
 import { ArrowRight, Loader2 } from "lucide-react";
 
-const MAIL = "mail4drrashmi@gmail.com";
+const MAIL = "virupakshawellness@gmail.com";
 const PHONE = "+91 97047 95319";
 const PHONE_TEL = "+919704795319";
 
@@ -45,7 +45,7 @@ export default function Contact() {
       }
 
       if (/confirm|activat|inbox|verify/i.test(msg)) {
-        toast.success("Check mail4drrashmi@gmail.com and confirm FormSubmit. Then try once more.");
+        toast.success("Check virupakshawellness@gmail.com and confirm FormSubmit. Then try once more.");
         return;
       }
 
