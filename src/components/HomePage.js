@@ -1,14 +1,11 @@
 import Hero from "./Hero";
 import Marquee from "./Marquee";
 import Manifesto from "./Manifesto";
-import Stories from "./Stories";
-import Program from "./Program";
-import Elements from "./Elements";
-import Foundation from "./Foundation";
-import Contact from "./Contact";
 import Footer from "./Footer";
 import Nav from "./Nav";
 import Landscape from "./Landscape";
+import Foundation from "./Foundation";
+import { FEATURES } from "../config/features";
 
 export default function HomePage() {
   return (
@@ -20,11 +17,7 @@ export default function HomePage() {
         <Hero />
         <Marquee />
         <Manifesto />
-        <Stories />
-        <Program />
-        <Elements />
-        <Foundation />
-        <Contact />
+        {FEATURES.showFoundationDonation && <Foundation />}
       </main>
       <Footer />
     </div>

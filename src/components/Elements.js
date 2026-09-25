@@ -3,35 +3,35 @@ import { Mountain, Droplets, Flame, Wind, Sparkles } from "lucide-react";
 
 const ELEMENTS = [
   {
-    n: "I",
+    n: "1",
     icon: Mountain,
     title: "Earth",
     sub: "Food Forest and Grounding",
     text: "A natural food forest that follows nature's own rhythm — no chemicals, only living soil and pure intention. Forest walking, barefoot on dry leaves and soil, grounds our energy.",
   },
   {
-    n: "II",
+    n: "2",
     icon: Droplets,
     title: "Water",
     sub: "Sacred Waters",
     text: "Mineral-rich, rain-fed pond water, naturally alkaline and deeply nourishing. Bathing in ponds and water ceremonies cleanse the body, mind, and energy field.",
   },
   {
-    n: "III",
+    n: "3",
     icon: Flame,
     title: "Fire",
     sub: "Rituals and Sun Energy",
     text: "Agnihotra, Homas, and fire rituals purify the space and raise spiritual energy. Sunbathing absorbs the life-giving energy of the sun — transformation, power, and light.",
   },
   {
-    n: "IV",
+    n: "4",
     icon: Wind,
     title: "Air",
     sub: "Breath and Life Force",
     text: "Clean, fresh air surrounded by trees and silence. Daily breathwork and pranayama rejuvenate body and mind, reconnecting us with the prana that flows through all living things.",
   },
   {
-    n: "V",
+    n: "5",
     icon: Sparkles,
     title: "Space",
     sub: "Fasting and Inner Stillness",
@@ -63,7 +63,7 @@ export default function Elements() {
               data-testid={`element-${el.title.toLowerCase()}`}
             >
               <div className="md:col-span-2 flex items-center gap-4">
-                <span className="font-serif text-4xl font-light text-terra">{el.n}</span>
+                <span className="font-cursive text-5xl md:text-6xl font-light text-terra select-none leading-none inline-block">{el.n}</span>
                 <el.icon size={20} strokeWidth={1.5} className="text-moss" />
               </div>
               <div className="md:col-span-4">

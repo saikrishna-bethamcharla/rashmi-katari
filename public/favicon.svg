@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#101110"/>
+  <!-- Five Elements Sacred Lotus / Flame -->
+  <!-- Center Flame / Lotus Bud -->
+  <path d="M32 10 C32 10 38 22 38 32 C38 39 35 44 32 46 C29 44 26 39 26 32 C26 22 32 10 32 10 Z" fill="#C9714F"/>
+  <!-- Left Petal -->
+  <path d="M30 46 C26 44 14 36 14 26 C14 20 18 16 20 16 C22 22 25 32 30 46 Z" fill="#8CA183" opacity="0.9"/>
+  <!-- Right Petal -->
+  <path d="M34 46 C38 44 50 36 50 26 C50 20 46 16 44 16 C42 22 39 32 34 46 Z" fill="#8CA183" opacity="0.9"/>
+  <!-- Water / Base Ripple -->
+  <path d="M16 52 Q 24 50 32 52 Q 40 54 48 52" stroke="#EAE4D8" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.8"/>
+  <path d="M22 56 Q 28 55 32 56 Q 36 57 42 56" stroke="#C9714F" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.7"/>
+</svg>

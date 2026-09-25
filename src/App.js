@@ -1,11 +1,14 @@
 import { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Lenis from "lenis";
 import { Toaster } from "sonner";
+import { FEATURES } from "./config/features";
 import HomePage from "./components/HomePage";
 import AboutPage from "./components/AboutPage";
 import VisionPage from "./components/VisionPage";
 import TeamPage from "./components/TeamPage";
+import JourneyPage from "./components/JourneyPage";
+import ContactPage from "./components/ContactPage";
 import ScrollTop from "./components/ScrollTop";
 
 export default function App() {
@@ -41,6 +44,16 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/vision" element={<VisionPage />} />
+        <Route
+          path="/journey"
+          element={FEATURES.showJourneyPage ? <JourneyPage /> : <Navigate to="/" replace />}
+        />
+        <Route
+          path="/stories"
+          element={FEATURES.showJourneyPage ? <JourneyPage /> : <Navigate to="/" replace />}
+        />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <ScrollTop />
       <Toaster position="bottom-center" toastOptions={{ style: { background: "#1C1D19", color: "#EAE4D8", border: "1px solid #C9714F", borderRadius: 0 } }} />

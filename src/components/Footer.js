@@ -1,5 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { scrollToSection } from "./Nav";
+import { FEATURES } from "../config/features";
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -18,10 +19,13 @@ export default function Footer() {
   return (
     <footer className="relative z-10 border-t border-line py-12" data-testid="site-footer">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <p className="font-serif text-xl">
+        <Link to="/" className="font-serif text-xl hover:opacity-80 transition-opacity">
           Rashmi <span className="italic text-terra">Katari</span>
-        </p>
+        </Link>
         <nav className="flex flex-wrap gap-6 text-xs uppercase tracking-widest text-ink">
+          <Link to="/" data-testid="footer-link-home" className="hover:text-terra transition-colors duration-300">
+            home
+          </Link>
           <Link to="/about" data-testid="footer-link-about" className="hover:text-terra transition-colors duration-300">
             about
           </Link>
@@ -31,16 +35,14 @@ export default function Footer() {
           <Link to="/vision" data-testid="footer-link-vision" className="hover:text-terra transition-colors duration-300">
             our vision
           </Link>
-          {["stories", "program", "elements", "contact"].map((id) => (
-            <button
-              key={id}
-              onClick={() => goSection(id)}
-              data-testid={`footer-link-${id}`}
-              className="hover:text-terra transition-colors duration-300 capitalize"
-            >
-              {id === "stories" ? "journey" : id}
-            </button>
-          ))}
+          {FEATURES.showJourneyPage && (
+            <Link to="/journey" data-testid="footer-link-journey" className="hover:text-terra transition-colors duration-300">
+              journey
+            </Link>
+          )}
+          <Link to="/contact" data-testid="footer-link-contact" className="hover:text-terra transition-colors duration-300">
+            contact
+          </Link>
           <a
             href="https://www.virupakshaniramayata.org/"
             target="_blank"

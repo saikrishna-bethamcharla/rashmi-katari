@@ -106,15 +106,6 @@ const TEAM = [
           "His intention is to share this journey with others and inspire people to become more curious about their food, their bodies and their relationship with nature.",
         ],
       },
-      {
-        title: "His Vision",
-        paragraphs: [
-          "Tikkaram dreams of creating living spaces where people can experience food differently—not simply as something purchased and consumed, but as something connected to soil, plants, nature and life itself.",
-          "Through his raw vegan journey and food-forest work, he hopes to inspire a simpler question:",
-          "“Can we live in a way that nourishes both ourselves and the Earth?”",
-          "“When we understand where our food comes from, we begin to understand our connection with nature.”",
-        ],
-      },
     ],
   },
 ];

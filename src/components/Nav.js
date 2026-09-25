@@ -2,15 +2,14 @@ import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { FEATURES } from "../config/features";
 
 const LINKS = [
+  { label: "Home", to: "/", id: "nav-link-home" },
   { label: "About", to: "/about", id: "nav-link-about" },
   { label: "Our Team", to: "/team", id: "nav-link-team" },
   { label: "Our Vision", to: "/vision", id: "nav-link-vision" },
-  { label: "Journey", href: "#stories", id: "nav-link-stories" },
-  { label: "Program", href: "#program", id: "nav-link-program" },
-  { label: "Five Elements", href: "#elements", id: "nav-link-elements" },
-  { label: "Foundation", href: "https://www.virupakshaniramayata.org/", id: "nav-link-foundation", external: true },
+  ...(FEATURES.showJourneyPage ? [{ label: "Journey", to: "/journey", id: "nav-link-journey" }] : []),
 ];
 
 export const scrollToSection = (href) => {
@@ -49,10 +48,21 @@ export default function Nav() {
     goSection(e, link.href);
   };
 
+  const handleLinkClick = (to) => {
+    setOpen(false);
+    if (to === "/" && location.pathname === "/") {
+      if (window.__lenis) {
+        window.__lenis.scrollTo(0, { duration: 1.2 });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-sand/80 backdrop-blur-md border-b border-line" data-testid="site-nav">
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-[72px] flex items-center justify-between">
-        <Link to="/" onClick={() => setOpen(false)} className="font-serif text-xl md:text-2xl tracking-tight" data-testid="nav-brand">
+        <Link to="/" onClick={() => handleLinkClick("/")} className="font-serif text-xl md:text-2xl tracking-tight" data-testid="nav-brand">
           Rashmi <span className="italic text-terra">Katari</span>
         </Link>
         <nav className="hidden md:flex items-center gap-8">
@@ -61,7 +71,7 @@ export default function Nav() {
               <Link
                 key={l.id}
                 to={l.to}
-                onClick={() => setOpen(false)}
+                onClick={() => handleLinkClick(l.to)}
                 data-testid={l.id}
                 className={`text-xs uppercase tracking-widest transition-colors duration-300 hover:text-terra ${
                   location.pathname === l.to ? "text-terra" : "text-ink/70"
@@ -83,13 +93,18 @@ export default function Nav() {
               </a>
             )
           )}
-          <button
-            onClick={(e) => goSection(e, "#contact")}
+          <Link
+            to="/contact"
+            onClick={() => setOpen(false)}
             data-testid="nav-contact-button"
-            className="text-xs uppercase tracking-widest border border-ink px-5 py-2.5 hover:bg-ink hover:text-sand transition-colors duration-300"
+            className={`text-xs uppercase tracking-widest border border-ink px-5 py-2.5 transition-colors duration-300 ${
+              location.pathname === "/contact"
+                ? "bg-ink text-sand border-terra"
+                : "hover:bg-ink hover:text-sand"
+            }`}
           >
             Begin a Conversation
-          </button>
+          </Link>
         </nav>
         <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Menu" data-testid="mobile-menu-button">
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -111,7 +126,7 @@ export default function Nav() {
                   <Link
                     key={l.id}
                     to={l.to}
-                    onClick={() => setOpen(false)}
+                    onClick={() => handleLinkClick(l.to)}
                     data-testid={`mobile-${l.id}`}
                     className={`font-serif text-2xl ${location.pathname === l.to ? "text-terra" : ""}`}
                   >
@@ -131,9 +146,16 @@ export default function Nav() {
                   </a>
                 )
               )}
-              <button onClick={(e) => goSection(e, "#contact")} data-testid="mobile-nav-contact" className="font-serif text-2xl italic text-terra text-left">
+              <Link
+                to="/contact"
+                onClick={() => setOpen(false)}
+                data-testid="mobile-nav-contact"
+                className={`font-serif text-2xl italic ${
+                  location.pathname === "/contact" ? "text-white" : "text-terra"
+                } text-left`}
+              >
                 Begin a Conversation
-              </button>
+              </Link>
             </div>
           </motion.nav>
         )}

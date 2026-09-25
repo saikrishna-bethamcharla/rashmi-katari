@@ -94,10 +94,12 @@ export default function Program() {
                   <p.icon size={22} strokeWidth={1.5} className="text-terra" />
                 </div>
                 <div className="col-span-10 md:col-span-4">
-                  <h3 className="font-serif text-2xl md:text-3xl font-light group-hover:translate-x-1 group-hover:text-terra transition-all duration-500">
+                  <h3 className="font-serif uppercase text-2xl md:text-3xl font-bold tracking-wider text-white group-hover:translate-x-1 group-hover:text-terra transition-all duration-500">
                     {p.title}
                   </h3>
-                  <p className="text-base font-bold uppercase tracking-wider text-moss mt-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">{p.sub}</p>
+                  <p className="text-base md:text-lg font-extrabold uppercase tracking-[0.18em] text-moss mt-2.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)]">
+                    {p.sub}
+                  </p>
                 </div>
                 <ul className="col-span-12 md:col-span-7 space-y-3 text-base md:text-lg leading-relaxed text-ink/90 font-light md:pt-1">
                   {p.points.map((pt, j) => (

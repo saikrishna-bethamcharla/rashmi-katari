@@ -1,7 +1,9 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 import { scrollToSection } from "./Nav";
+import { FEATURES } from "../config/features";
 
 const MaskedLine = ({ children, delay = 0 }) => (
   <span className="block overflow-hidden">
@@ -56,21 +58,33 @@ export default function Hero() {
             transition={{ duration: 0.9, delay: 1.2 }}
             className="mt-10 flex flex-wrap gap-4"
           >
-            <button
-              onClick={() => scrollToSection("#elements")}
+            <Link
+              to="/vision"
               data-testid="hero-explore-button"
               className="group bg-ink text-sand px-8 py-4 text-xs uppercase tracking-widest hover:bg-terra transition-colors duration-300 flex items-center gap-3"
             >
-              Explore the Elements
-              <ArrowDown size={14} className="group-hover:translate-y-1 transition-transform duration-300" />
-            </button>
-            <button
-              onClick={() => scrollToSection("#program")}
-              data-testid="hero-program-button"
-              className="px-8 py-4 text-xs uppercase tracking-widest border border-ink/30 hover:border-terra hover:text-terra transition-colors duration-300"
-            >
-              Our Program
-            </button>
+              Our Vision
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
+            {FEATURES.showJourneyPage ? (
+              <Link
+                to="/journey"
+                data-testid="hero-journey-button"
+                className="group px-8 py-4 text-xs uppercase tracking-widest border border-ink/30 hover:border-terra hover:text-terra transition-colors duration-300 flex items-center gap-2"
+              >
+                The Journey
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+            ) : (
+              <Link
+                to="/contact"
+                data-testid="hero-contact-button"
+                className="group px-8 py-4 text-xs uppercase tracking-widest border border-ink/30 hover:border-terra hover:text-terra transition-colors duration-300 flex items-center gap-2"
+              >
+                Begin a Conversation
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+            )}
           </motion.div>
         </div>
         <div className="md:col-span-5 relative md:order-1">
@@ -82,10 +96,10 @@ export default function Hero() {
           >
             <motion.div style={{ y: imgY }} className="relative w-full h-[60vh] md:h-[75vh] scale-110">
               <img
-                src={`${process.env.PUBLIC_URL}/art/hero-portrait.png`}
+                src={`${process.env.PUBLIC_URL}/art/hero-portrait.png?v=3`}
                 alt="Portrait of Rashmi Katari"
                 className="w-full h-full object-cover"
-                style={{ objectPosition: "center 20%" }}
+                style={{ objectPosition: "center center" }}
                 data-testid="hero-image"
               />
             </motion.div>

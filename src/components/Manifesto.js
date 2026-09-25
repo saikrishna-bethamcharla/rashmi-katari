@@ -2,19 +2,19 @@ import Reveal from "./Reveal";
 
 const CHAPTERS = [
   {
-    n: "01",
+    n: "1",
     title: "A Living Sanctuary",
     text: "We are creating a living sanctuary where nature, ritual, and inner stillness meet — a place to reconnect with the Earth, purify body and spirit, and return to the quiet truth within.",
   },
   {
-    n: "02",
+    n: "2",
     title: "Held in Sacred Energy",
     text: "Guided by the five elements and held in sacred energy, this space invites deep emotional healing, meditation, conscious parenting, and a return to presence.",
   },
   {
-    n: "03",
+    n: "3",
     title: "Every Offering Builds the Vision",
-    text: "Every offering and contribution supports the vision of buying land and building a sustainable, natural environment where anyone can come to heal and grow.",
+    text: "Every offering and contribution supports the vision of creating a sustainable, natural sanctuary where anyone can come to heal and grow.",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function Manifesto() {
               data-testid={`manifesto-chapter-${c.n}`}
             >
               <div className="md:col-span-3">
-                <span className="font-serif text-7xl md:text-8xl font-light text-terra">
+                <span className="font-cursive text-6xl md:text-7xl lg:text-8xl font-light text-terra select-none leading-none inline-block">
                   {c.n}
                 </span>
               </div>
